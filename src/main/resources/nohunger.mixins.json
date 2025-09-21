@@ -5,8 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AllFoodsMixin",
-    "DamageAdjustMixin",
-    "CakeBlockMixin"
+    "DamageAdjustMixin"
   ],
   "client": [],
   "server": [],

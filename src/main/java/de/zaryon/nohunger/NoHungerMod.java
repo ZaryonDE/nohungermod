@@ -51,21 +51,20 @@ public class NoHungerMod implements ModInitializer {
                     && world.getBlockState(hitResult.getBlockPos()).getBlock() == Blocks.CAKE;
 
             switch (config.getMode()) {
-                case NO_FOOD:
-                    // Gar nichts essen
-                    return TypedActionResult.fail(stack);
-
                 case VANILLA_SPECIAL_FOODS:
-                    // Nur Spezialnahrung erlaubt
+                    // Hier ist jetzt die alte NoEating-Logik
+                    // Alles blockieren, auch Spezialkost
                     if (!isSpecialFood) return TypedActionResult.fail(stack);
-
-                    // Kuchen blockieren, egal ob Spezialkost in der Hand
                     if (clickedCakeBlock) return TypedActionResult.fail(stack);
                     break;
 
+                case NO_FOOD:
+                    // Hier ist jetzt die alte Vanilla Special Food Logik
+                    // Nur Spezialkost essbar, Kuchen blockiert
+                    return TypedActionResult.fail(stack);
+
                 case ALL_FOODS:
                     // Alles essbar, inkl. Kuchen
-                    // Kein weiteres Eingreifen nötig
                     break;
 
                 default:
