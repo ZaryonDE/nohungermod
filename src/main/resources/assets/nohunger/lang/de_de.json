@@ -1,0 +1,17 @@
+{
+  "config.nohunger.settings": "No Hunger Mod Einstellungen",
+  "config.nohunger.category.general": "Allgemein",
+  "config.nohunger.mode.select": "Modus auswählen",
+
+  "config.nohunger.mode.off": "Aus",
+  "config.nohunger.mode.vanilla_special_foods": "Nur Spezialkost",
+  "config.nohunger.mode.all_foods": "Alles essbar",
+  "config.nohunger.mode.no_food": "Nichts essbar",
+
+  "config.nohunger.tooltip.off": "Mod wird ausgeschaltet",
+  "config.nohunger.tooltip.vanilla_special_foods": "Nur Essen mit Effekten",
+  "config.nohunger.tooltip.all_foods": "Trotz voller Hungerleiste essen möglich",
+  "config.nohunger.tooltip.no_food": "Essen komplett blockiert",
+
+  "mod.nohunger.description": "Verhindert Hungerverlust – deine Hungerleiste bleibt immer voll."
+}

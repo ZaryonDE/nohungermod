@@ -1,0 +1,17 @@
+{
+  "config.nohunger.settings": "Configuración de No Hunger Mod",
+  "config.nohunger.category.general": "General",
+  "config.nohunger.mode.select": "Seleccionar modo",
+
+  "config.nohunger.mode.off": "Apagado",
+  "config.nohunger.mode.vanilla_special_foods": "Solo especial",
+  "config.nohunger.mode.all_foods": "Todo comestible",
+  "config.nohunger.mode.no_food": "Nada comestible",
+
+  "config.nohunger.tooltip.off": "El mod está desactivado",
+  "config.nohunger.tooltip.vanilla_special_foods": "Solo se pueden comer alimentos con efectos",
+  "config.nohunger.tooltip.all_foods": "Se puede comer incluso con la barra de hambre llena",
+  "config.nohunger.tooltip.no_food": "No se puede comer nada",
+
+  "mod.nohunger.description": "Evita la pérdida de hambre: tu barra de hambre siempre se mantiene llena."
+}

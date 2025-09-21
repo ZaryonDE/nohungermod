@@ -1,0 +1,17 @@
+{
+  "config.nohunger.settings": "No Hunger Mod Ayarları",
+  "config.nohunger.category.general": "Genel",
+  "config.nohunger.mode.select": "Mod seç",
+
+  "config.nohunger.mode.off": "Kapalı",
+  "config.nohunger.mode.vanilla_special_foods": "Sadece özel",
+  "config.nohunger.mode.all_foods": "Hepsi yenebilir",
+  "config.nohunger.mode.no_food": "Hiçbir şey yenmez",
+
+  "config.nohunger.tooltip.off": "Mod kapalı",
+  "config.nohunger.tooltip.vanilla_special_foods": "Sadece efektli yiyecekler yenebilir",
+  "config.nohunger.tooltip.all_foods": "Dolu açlık çubuğunda bile yemek yenebilir",
+  "config.nohunger.tooltip.no_food": "Hiçbir şey yenemez",
+
+  "mod.nohunger.description": "Açlık kaybını önler – açlık çubuğunuz her zaman dolu kalır."
+}

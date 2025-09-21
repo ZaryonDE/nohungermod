@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "nohunger",
+  "version": "$version",
+  "name": "No Hunger Mod",
+  "description": "Prevents hunger loss – your hunger bar stays full.",
+  "authors": [
+    "Zaryon"
+  ],
+  "license": "MIT",
+  "icon": "assets/nohunger/nohungermod.png",
+  "entrypoints": {
+    "main": [
+      "de.zaryon.nohunger.NoHungerMod"
+    ],
+    "client": [
+      "de.zaryon.nohunger.client.NoHungerModClient"
+    ],
+    "modmenu": [
+      "de.zaryon.nohunger.client.NoHungerModClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "fabric": "*",
+    "minecraft": "1.20.1",
+    "cloth-config": "*",
+    "modmenu": "*"
+  },
+  "mixins": [
+    "nohunger.mixins.json"
+  ]
+}

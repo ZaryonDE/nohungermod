@@ -1,0 +1,17 @@
+{
+  "config.nohunger.settings": "No Hunger Mod 설정",
+  "config.nohunger.category.general": "일반",
+  "config.nohunger.mode.select": "모드 선택",
+
+  "config.nohunger.mode.off": "꺼짐",
+  "config.nohunger.mode.vanilla_special_foods": "특수 음식만",
+  "config.nohunger.mode.all_foods": "모두 먹을 수 있음",
+  "config.nohunger.mode.no_food": "먹을 수 없음",
+
+  "config.nohunger.tooltip.off": "모드가 꺼져 있습니다",
+  "config.nohunger.tooltip.vanilla_special_foods": "효과가 있는 음식만 먹을 수 있음",
+  "config.nohunger.tooltip.all_foods": "포만 상태에서도 음식 섭취 가능",
+  "config.nohunger.tooltip.no_food": "아무것도 먹을 수 없음",
+
+  "mod.nohunger.description": "배고픔 감소를 방지 – 배고픔 게이지가 항상 가득 찹니다."
+}

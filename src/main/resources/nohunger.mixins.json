@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.zaryon.nohunger.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AllFoodsMixin",
+    "DamageAdjustMixin",
+    "CakeBlockMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

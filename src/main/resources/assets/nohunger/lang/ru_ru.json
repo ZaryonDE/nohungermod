@@ -1,0 +1,17 @@
+{
+  "config.nohunger.settings": "Настройки No Hunger Mod",
+  "config.nohunger.category.general": "Общее",
+  "config.nohunger.mode.select": "Выбрать режим",
+
+  "config.nohunger.mode.off": "Выключено",
+  "config.nohunger.mode.vanilla_special_foods": "Только спец. еда",
+  "config.nohunger.mode.all_foods": "Всё съедобно",
+  "config.nohunger.mode.no_food": "Ничего нельзя есть",
+
+  "config.nohunger.tooltip.off": "Мод отключен",
+  "config.nohunger.tooltip.vanilla_special_foods": "Можно есть только еду с эффектами",
+  "config.nohunger.tooltip.all_foods": "Можно есть даже при полном уровне голода",
+  "config.nohunger.tooltip.no_food": "Нельзя есть ничего",
+
+  "mod.nohunger.description": "Предотвращает потерю голода – шкала голода всегда полная."
+}
