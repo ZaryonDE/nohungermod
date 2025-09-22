@@ -24,7 +24,6 @@ public class NoHungerMod implements ModInitializer {
             if (config.getMode() == NoHungerConfig.HungerMode.OFF) return;
 
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-                // Immer volle Leiste halten, außer OFF
                 player.getHungerManager().setFoodLevel(20);
                 player.getHungerManager().setSaturationLevel(20f);
             }
@@ -38,7 +37,7 @@ public class NoHungerMod implements ModInitializer {
                 return TypedActionResult.pass(stack);
             }
 
-            // Prüfen ob Spezialkost
+            // Prüfen ob Spezialkost (nur für Info, wird hier nicht extra blockiert)
             boolean isSpecialFood = stack.isFood() && (
                     stack.getItem() == Items.GOLDEN_APPLE ||
                             stack.getItem() == Items.ENCHANTED_GOLDEN_APPLE ||
@@ -52,16 +51,23 @@ public class NoHungerMod implements ModInitializer {
 
             switch (config.getMode()) {
                 case VANILLA_SPECIAL_FOODS:
-                    // Hier ist jetzt die alte NoEating-Logik
-                    // Alles blockieren, auch Spezialkost
-                    if (!isSpecialFood) return TypedActionResult.fail(stack);
-                    if (clickedCakeBlock) return TypedActionResult.fail(stack);
+                    // Spezial-Food immer erlaubt
+                    if (isSpecialFood) {
+                        return TypedActionResult.pass(stack);
+                    }
+
+                    // Kuchen blockieren, wenn kein Spezial-Food in der Hand
+                    if (clickedCakeBlock) {
+                        return TypedActionResult.fail(stack);
+                    }
                     break;
 
+
                 case NO_FOOD:
-                    // Hier ist jetzt die alte Vanilla Special Food Logik
-                    // Nur Spezialkost essbar, Kuchen blockiert
-                    return TypedActionResult.fail(stack);
+                    // Alte VanillaSpecialFood-Logik: Nur Spezialkost essbar, Kuchen blockieren
+                    if (stack.isFood()) return TypedActionResult.fail(stack);
+                    if (clickedCakeBlock) return TypedActionResult.fail(stack);
+                    break;
 
                 case ALL_FOODS:
                     // Alles essbar, inkl. Kuchen
