@@ -2,6 +2,7 @@ package de.zaryon.nohunger.mixin;
 
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageTypes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -17,15 +18,16 @@ public abstract class DamageAdjustMixin {
             )
     )
     private float adjustDamage(DamageSource source, float amount) {
-        if (source == DamageSource.CACTUS
-                || source == DamageSource.HOT_FLOOR    // Magma block
-                || source == DamageSource.IN_FIRE      // Spieler brennt
-                || source == DamageSource.ON_FIRE
-                || source == DamageSource.FLY_INTO_WALL // Buggy Flug in Wand
-                || source == DamageSource.WITHER
-                || source == DamageSource.SWEET_BERRY_BUSH
-                || source == DamageSource.DROWN
-        ) {
+        if (source.isOf(DamageTypes.CACTUS)                 ||
+                source.isOf(DamageTypes.HOT_FLOOR)          ||
+                source.isOf(DamageTypes.IN_FIRE)            ||
+                source.isOf(DamageTypes.ON_FIRE)            ||
+                source.isOf(DamageTypes.FLY_INTO_WALL)      || // Buggy Flug in Wand
+                source.isOf(DamageTypes.WITHER)             ||
+                source.isOf(DamageTypes.SWEET_BERRY_BUSH)   ||
+                source.isOf(DamageTypes.DROWN)
+
+          ) {
             return amount * 1.7f; // Schaden auf 150% erhöhen
         }
         return amount; // alle anderen Schaden bleiben gleich
