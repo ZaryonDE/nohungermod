@@ -24,6 +24,7 @@ public class DamageAdjustMixin {
                 || type.matchesKey(DamageTypes.CACTUS)
                 || type.matchesKey(DamageTypes.HOT_FLOOR)
                 || type.matchesKey(DamageTypes.WITHER)
+                || type.matchesKey(DamageTypes.DROWN)
                 || type.matchesKey(DamageTypes.SWEET_BERRY_BUSH)) {
             newDamage = 1.5F; // niedrigen Schaden auf 1,5 erhöhen
         }
