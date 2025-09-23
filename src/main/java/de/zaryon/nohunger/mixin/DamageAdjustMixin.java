@@ -23,8 +23,9 @@ public abstract class DamageAdjustMixin {
                 || source == DamageSource.ON_FIRE
                 || source == DamageSource.FLY_INTO_WALL // Buggy Flug in Wand
                 || source == DamageSource.WITHER
+                || source == DamageSource.SWEET_BERRY_BUSH
         ) {
-            return amount * 1.5f; // Schaden auf 150% erhöhen
+            return amount * 1.6f; // Schaden auf 150% erhöhen
         }
         return amount; // alle anderen Schaden bleiben gleich
     }
