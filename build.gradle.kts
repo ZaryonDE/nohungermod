@@ -1,7 +1,7 @@
 import java.util.Properties
 
 plugins {
-    id("fabric-loom") version "1.5.8"
+    id("fabric-loom") version "1.6.5"
     id("maven-publish")
     id("com.modrinth.minotaur") version "2.+"
 }
@@ -44,7 +44,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesBaseName = "NoHunger-1.20.1-Fabric"
+    archivesBaseName = "NoHunger-1.20.4-Fabric"
 }
 
 repositories {
@@ -56,12 +56,12 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.20.1")
-    mappings("net.fabricmc:yarn:1.20.1+build.1:v2")
+    minecraft("com.mojang:minecraft:1.20.4")
+    mappings("net.fabricmc:yarn:1.20.4+build.1:v2")
     modImplementation("net.fabricmc:fabric-loader:0.17.2")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.92.6+1.20.1")
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:11.1.136")
-    modImplementation("com.terraformersmc:modmenu:7.2.2")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.97.0+1.20.4")
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:13.0.138")
+    modImplementation("com.terraformersmc:modmenu:9.0.0")
 }
 
 java {
