@@ -14,21 +14,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class DamageAdjustMixin {
 
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void adjustLowDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    private void adjustDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         RegistryEntry<DamageType> type = source.getTypeRegistryEntry();
-
         float newDamage = amount;
 
-        if (type.matchesKey(DamageTypes.IN_FIRE)
-                || type.matchesKey(DamageTypes.ON_FIRE)
-                || type.matchesKey(DamageTypes.CACTUS)
+        // Schädliche Quellen anpassen
+        if (type.matchesKey(DamageTypes.CACTUS)
                 || type.matchesKey(DamageTypes.HOT_FLOOR)
+                || type.matchesKey(DamageTypes.IN_FIRE)
+                || type.matchesKey(DamageTypes.ON_FIRE)
                 || type.matchesKey(DamageTypes.WITHER)
                 || type.matchesKey(DamageTypes.SWEET_BERRY_BUSH)) {
-            newDamage = 1.5F; // niedrigen Schaden auf 1,5 erhöhen
+            newDamage = 1.5F; // leicht erhöht
         }
 
-        // Aufruf der Original-Methode erzwingen mit modifiziertem Schaden
+        if (type.matchesKey(DamageTypes.DROWN)) {
+            newDamage = 3.5F; // deutlich erhöht, um Regeneration zu übertreffen
+        }
+
+        // Aufruf der Original-Methode mit modifiziertem Schaden
         if (newDamage != amount) {
             cir.setReturnValue(((LivingEntity)(Object)this).damage(source, newDamage));
         }
