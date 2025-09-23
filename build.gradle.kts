@@ -44,7 +44,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesBaseName = "NoHunger-1.20.1-Fabric"
+    archivesBaseName = "NoHunger-1.19.2-Fabric"
 }
 
 repositories {
@@ -56,12 +56,12 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.20.1")
-    mappings("net.fabricmc:yarn:1.20.1+build.1:v2")
+    minecraft("com.mojang:minecraft:1.19.2")
+    mappings("net.fabricmc:yarn:1.19.2+build.1:v2")
     modImplementation("net.fabricmc:fabric-loader:0.17.2")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.92.6+1.20.1")
-    modImplementation("me.shedaniel.cloth:cloth-config-fabric:11.1.136")
-    modImplementation("com.terraformersmc:modmenu:7.2.2")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.2")
+    modImplementation("me.shedaniel.cloth:cloth-config-fabric:8.3.103")
+    modImplementation("com.terraformersmc:modmenu:4.1.2")
 }
 
 java {
@@ -91,7 +91,7 @@ modrinth {
     versionNumber.set(version.toString())
     versionType.set("release")
     uploadFile.set(tasks.remapJar)
-    gameVersions.addAll(listOf("1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4"))
+    gameVersions.addAll(listOf("1.19", "1.19.1", "1.19.2"))
     loaders.add("fabric")
     changelog.set(System.getenv("GITHUB_RELEASE_BODY") ?: "Automatischer Release-Build")
 }

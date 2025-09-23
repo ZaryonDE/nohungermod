@@ -4,7 +4,8 @@
   "package": "de.zaryon.nohunger.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AllFoodsMixin"
+    "AllFoodsMixin",
+    "DamageAdjustMixin"
   ],
   "client": [],
   "server": [],
