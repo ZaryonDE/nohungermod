@@ -44,7 +44,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesBaseName = "NoHunger-1.20.5-Fabric"
+    archivesName = "NoHunger-1.20.5-Fabric"
 }
 
 repositories {
