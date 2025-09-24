@@ -22,10 +22,14 @@ public class DamageAdjustMixin {
         if (type.matchesKey(DamageTypes.CACTUS)
                 || type.matchesKey(DamageTypes.HOT_FLOOR)
                 || type.matchesKey(DamageTypes.IN_FIRE)
-                || type.matchesKey(DamageTypes.ON_FIRE)
+                || type.matchesKey(DamageTypes.CAMPFIRE)
                 || type.matchesKey(DamageTypes.WITHER)
                 || type.matchesKey(DamageTypes.SWEET_BERRY_BUSH)) {
-            newDamage = 1.5F; // leicht erhöht
+            newDamage = 1.9F; // leicht erhöht
+        }
+
+        if (type.matchesKey(DamageTypes.ON_FIRE)) {
+            newDamage = 2.9F; // deutlich erhöht, um Regeneration zu übertreffen
         }
 
         if (type.matchesKey(DamageTypes.DROWN)) {
