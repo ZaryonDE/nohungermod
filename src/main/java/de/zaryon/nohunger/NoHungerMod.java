@@ -6,9 +6,8 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.SuspiciousStewItem;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.block.Blocks;
 import de.zaryon.nohunger.config.NoHungerConfig;
@@ -33,12 +32,12 @@ public class NoHungerMod implements ModInitializer {
 
         // Item-Use Event: Kontrolle der Kategorien + Kuchenlogik
         UseItemCallback.EVENT.register((player, world, hand) -> {
-            ItemStack stack = player.getStackInHand(hand);
+                    ItemStack stack = player.getStackInHand(hand);
 
-            // Prüfen, ob es Special Food ist
+                    // Prüfen, ob es Special Food ist
             boolean isSpecialFood = stack.getItem() == Items.GOLDEN_APPLE
                     || stack.getItem() == Items.ENCHANTED_GOLDEN_APPLE
-                    || stack.getItem() instanceof SuspiciousStewItem;
+                    || stack.getItem() == Items.SUSPICIOUS_STEW;
 
             // Kuchen-Check
             BlockHitResult hitResult = (BlockHitResult) player.raycast(5.0, 0.0f, false);
@@ -49,19 +48,19 @@ public class NoHungerMod implements ModInitializer {
                 case VANILLA_SPECIAL_FOODS:
                     // Spezial-Food immer erlaubt
                     if (isSpecialFood) {
-                        return TypedActionResult.pass(stack);
+                        return ActionResult.PASS;
                     }
 
                     // Kuchen blockieren, wenn kein Spezial-Food in der Hand
                     if (clickedCakeBlock) {
-                        return TypedActionResult.fail(stack);
+                        return ActionResult.FAIL;
                     }
                     break;
 
                 case NO_FOOD:
                     // Alte VanillaSpecialFood-Logik: Nur Spezialkost essbar, Kuchen blockieren
                     if (stack.get(DataComponentTypes.FOOD) != null) {
-                        return TypedActionResult.fail(stack);
+                        return ActionResult.FAIL;
                     }
                 case ALL_FOODS:
                     // Alles essbar
@@ -70,10 +69,10 @@ public class NoHungerMod implements ModInitializer {
                 case OFF:
                 default:
                     // Mod aus, alles normal
-                    return TypedActionResult.pass(stack);
+                    return ActionResult.PASS;
             }
 
-            return TypedActionResult.pass(stack);
+            return ActionResult.PASS;
         });
     }
 }
