@@ -3,7 +3,7 @@ package de.zaryon.nohunger;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.item.Item;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.SuspiciousStewItem;
@@ -34,28 +34,35 @@ public class NoHungerMod implements ModInitializer {
         // Item-Use Event: Kontrolle der Kategorien + Kuchenlogik
         UseItemCallback.EVENT.register((player, world, hand) -> {
             ItemStack stack = player.getStackInHand(hand);
-            Item item = stack.getItem();
 
             // Prüfen, ob es Special Food ist
-            boolean isSpecialFood = item == Items.GOLDEN_APPLE
-                    || item == Items.ENCHANTED_GOLDEN_APPLE
-                    || item instanceof SuspiciousStewItem;
+            boolean isSpecialFood = stack.getItem() == Items.GOLDEN_APPLE
+                    || stack.getItem() == Items.ENCHANTED_GOLDEN_APPLE
+                    || stack.getItem() instanceof SuspiciousStewItem;
 
             // Kuchen-Check
             BlockHitResult hitResult = (BlockHitResult) player.raycast(5.0, 0.0f, false);
-            boolean clickedCakeBlock = hitResult.getType() == HitResult.Type.BLOCK
+            boolean clickedCakeBlock = hitResult.getType() == net.minecraft.util.hit.HitResult.Type.BLOCK
                     && world.getBlockState(hitResult.getBlockPos()).getBlock() == Blocks.CAKE;
 
             switch (config.getMode()) {
                 case VANILLA_SPECIAL_FOODS:
-                    // Blockiere alles außer Special Food, blockiere Kuchen
-                    if (!isSpecialFood || clickedCakeBlock) return TypedActionResult.fail(stack);
+                    // Spezial-Food immer erlaubt
+                    if (isSpecialFood) {
+                        return TypedActionResult.pass(stack);
+                    }
+
+                    // Kuchen blockieren, wenn kein Spezial-Food in der Hand
+                    if (clickedCakeBlock) {
+                        return TypedActionResult.fail(stack);
+                    }
                     break;
 
                 case NO_FOOD:
-                    // Blockiere alles
-                    return TypedActionResult.fail(stack);
-
+                    // Alte VanillaSpecialFood-Logik: Nur Spezialkost essbar, Kuchen blockieren
+                    if (stack.get(DataComponentTypes.FOOD) != null) {
+                        return TypedActionResult.fail(stack);
+                    }
                 case ALL_FOODS:
                     // Alles essbar
                     break;
