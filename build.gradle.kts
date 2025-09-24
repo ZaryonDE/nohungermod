@@ -42,7 +42,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesName = "NoHunger-1.21.7-Fabric"
+    archivesName = "NoHunger-1.21.8-Fabric"
 }
 
 repositories {
@@ -54,10 +54,10 @@ repositories {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.21.7")
-    mappings("net.fabricmc:yarn:1.21.7+build.1:v2")
+    minecraft("com.mojang:minecraft:1.21.8")
+    mappings("net.fabricmc:yarn:1.21.8+build.1:v2")
     modImplementation("net.fabricmc:fabric-loader:0.17.2")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.129.0+1.21.7")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.133.4+1.21.8")
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:19.0.147")
     modImplementation("com.terraformersmc:modmenu:15.0.0")
 }
