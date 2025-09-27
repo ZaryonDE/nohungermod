@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Always All",
   "config.nohunger.mode.no_food": "No Eating",
 
-  "config.nohunger.tooltip.off": "Disables the mod.",
+  "config.nohunger.tooltip.normal": "Disables the mod.",
   "config.nohunger.tooltip.vanilla_special_foods": "Only special foods with effects are edible.",
   "config.nohunger.tooltip.all_foods": "Food can always be eaten, even at full hunger.",
   "config.nohunger.tooltip.no_food": "Eating is completely blocked.",

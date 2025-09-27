@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Tout comestible",
   "config.nohunger.mode.no_food": "Rien à manger",
 
-  "config.nohunger.tooltip.off": "Le mod est désactivé",
+  "config.nohunger.tooltip.normal": "Le mod est désactivé",
   "config.nohunger.tooltip.vanilla_special_foods": "On ne peut manger que les aliments avec effets",
   "config.nohunger.tooltip.all_foods": "On peut manger même avec la barre de faim pleine",
   "config.nohunger.tooltip.no_food": "Impossible de manger quoi que ce soit",

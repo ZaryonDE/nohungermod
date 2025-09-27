@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "모두 먹을 수 있음",
   "config.nohunger.mode.no_food": "먹을 수 없음",
 
-  "config.nohunger.tooltip.off": "모드가 꺼져 있습니다",
+  "config.nohunger.tooltip.normal": "모드가 꺼져 있습니다",
   "config.nohunger.tooltip.vanilla_special_foods": "효과가 있는 음식만 먹을 수 있음",
   "config.nohunger.tooltip.all_foods": "포만 상태에서도 음식 섭취 가능",
   "config.nohunger.tooltip.no_food": "아무것도 먹을 수 없음",

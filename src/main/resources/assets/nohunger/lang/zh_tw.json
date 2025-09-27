@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "全部可食用",
   "config.nohunger.mode.no_food": "禁止食用",
 
-  "config.nohunger.tooltip.off": "Mod 已關閉",
+  "config.nohunger.tooltip.normal": "Mod 已關閉",
   "config.nohunger.tooltip.vanilla_special_foods": "只能食用帶效果的食物",
   "config.nohunger.tooltip.all_foods": "即使飢餓條已滿也可進食",
   "config.nohunger.tooltip.no_food": "無法進食任何食物",

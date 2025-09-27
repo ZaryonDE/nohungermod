@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Все їстівне",
   "config.nohunger.mode.no_food": "Нічого не їстівне",
 
-  "config.nohunger.tooltip.off": "Мод вимкнено",
+  "config.nohunger.tooltip.normal": "Мод вимкнено",
   "config.nohunger.tooltip.vanilla_special_foods": "Їсти можна лише їжу з ефектами",
   "config.nohunger.tooltip.all_foods": "Можна їсти навіть при повному голоді",
   "config.nohunger.tooltip.no_food": "Не можна нічого їсти",

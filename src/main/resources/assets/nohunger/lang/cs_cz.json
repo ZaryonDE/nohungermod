@@ -3,12 +3,12 @@
   "config.nohunger.category.general": "Obecné",
   "config.nohunger.mode.select": "Vybrat režim",
 
-  "config.nohunger.mode.off": "Vypnuto",
+  "config.nohunger.mode.normal": "Vypnuto",
   "config.nohunger.mode.vanilla_special_foods": "Pouze speciální",
   "config.nohunger.mode.all_foods": "Vše jedlé",
   "config.nohunger.mode.no_food": "Žádné jídlo",
 
-  "config.nohunger.tooltip.off": "Mod je vypnutý",
+  "config.nohunger.tooltip.normal": "Mod je vypnutý",
   "config.nohunger.tooltip.vanilla_special_foods": "Jíst lze jen jídlo s efekty",
   "config.nohunger.tooltip.all_foods": "Jíst lze i při plném ukazateli hladu",
   "config.nohunger.tooltip.no_food": "Jíst není možné",

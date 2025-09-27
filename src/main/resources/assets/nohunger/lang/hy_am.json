@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Բոլորը ուտելի են",
   "config.nohunger.mode.no_food": "Ոչինչ չի ուտելի",
 
-  "config.nohunger.tooltip.off": "Մոդը անջատված է",
+  "config.nohunger.tooltip.normal": "Մոդը անջատված է",
   "config.nohunger.tooltip.vanilla_special_foods": "Կարող եք ուտել միայն ազդեցություն ունեցող սնունդ",
   "config.nohunger.tooltip.all_foods": "Կարող եք ուտել նույնիսկ լիքի սովի տողով",
   "config.nohunger.tooltip.no_food": "Ուտել հնարավոր չէ",

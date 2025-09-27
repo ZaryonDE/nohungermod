@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Wszystko jadalne",
   "config.nohunger.mode.no_food": "Nic nie jadalne",
 
-  "config.nohunger.tooltip.off": "Mod jest wyłączony",
+  "config.nohunger.tooltip.normal": "Mod jest wyłączony",
   "config.nohunger.tooltip.vanilla_special_foods": "Można jeść tylko jedzenie z efektami",
   "config.nohunger.tooltip.all_foods": "Można jeść nawet przy pełnym pasku głodu",
   "config.nohunger.tooltip.no_food": "Nie można jeść niczego",

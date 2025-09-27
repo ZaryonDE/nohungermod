@@ -8,7 +8,7 @@
   "config.nohunger.mode.all_foods": "Hepsi yenebilir",
   "config.nohunger.mode.no_food": "Hiçbir şey yenmez",
 
-  "config.nohunger.tooltip.off": "Mod kapalı",
+  "config.nohunger.tooltip.normal": "Mod kapalı",
   "config.nohunger.tooltip.vanilla_special_foods": "Sadece efektli yiyecekler yenebilir",
   "config.nohunger.tooltip.all_foods": "Dolu açlık çubuğunda bile yemek yenebilir",
   "config.nohunger.tooltip.no_food": "Hiçbir şey yenemez",
