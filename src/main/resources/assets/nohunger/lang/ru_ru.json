@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "Общее",
   "config.nohunger.mode.select": "Выбрать режим",
 
-  "config.nohunger.mode.off": "Выключено",
+  "config.nohunger.mode.normal": "Нормальный",
   "config.nohunger.mode.vanilla_special_foods": "Только спец. еда",
   "config.nohunger.mode.all_foods": "Всё съедобно",
   "config.nohunger.mode.no_food": "Ничего нельзя есть",

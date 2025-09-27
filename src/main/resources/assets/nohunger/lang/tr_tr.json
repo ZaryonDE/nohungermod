@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "Genel",
   "config.nohunger.mode.select": "Mod seç",
 
-  "config.nohunger.mode.off": "Kapalı",
+  "config.nohunger.mode.normal": "Normal",
   "config.nohunger.mode.vanilla_special_foods": "Sadece özel",
   "config.nohunger.mode.all_foods": "Hepsi yenebilir",
   "config.nohunger.mode.no_food": "Hiçbir şey yenmez",

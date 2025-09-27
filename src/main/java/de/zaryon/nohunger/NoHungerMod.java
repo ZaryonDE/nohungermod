@@ -21,7 +21,7 @@ public class NoHungerMod implements ModInitializer {
 
         // Tick Event: Hunger immer auf 20 halten, außer Mod aus
         ServerTickEvents.END_SERVER_TICK.register(server -> {
-            if (config.getMode() == NoHungerConfig.HungerMode.OFF) return;
+            if (config.getMode() == NoHungerConfig.HungerMode.NORMAL) return;
 
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
                 player.getHungerManager().setFoodLevel(20);
@@ -33,7 +33,7 @@ public class NoHungerMod implements ModInitializer {
         UseItemCallback.EVENT.register((player, world, hand) -> {
             ItemStack stack = player.getStackInHand(hand);
 
-            if (config.getMode() == NoHungerConfig.HungerMode.OFF) {
+            if (config.getMode() == NoHungerConfig.HungerMode.NORMAL) {
                 return TypedActionResult.pass(stack);
             }
 

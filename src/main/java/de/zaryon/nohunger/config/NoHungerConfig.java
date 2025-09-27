@@ -15,7 +15,7 @@ public class NoHungerConfig {
 
     // HungerMode enum mit Translation + Tooltip Keys
     public enum HungerMode {
-        OFF("config.nohunger.mode.off", "config.nohunger.tooltip.off"),
+        NORMAL("config.nohunger.mode.normal", "config.nohunger.tooltip.normal"),
         VANILLA_SPECIAL_FOODS("config.nohunger.mode.vanilla_special_foods", "config.nohunger.tooltip.vanilla_special_foods"),
         ALL_FOODS("config.nohunger.mode.all_foods", "config.nohunger.tooltip.all_foods"),
         NO_FOOD("config.nohunger.mode.no_food", "config.nohunger.tooltip.no_food");
@@ -37,7 +37,7 @@ public class NoHungerConfig {
         }
     }
 
-    private HungerMode mode = HungerMode.OFF;
+    private HungerMode mode = HungerMode.NORMAL;
 
     private static final String CONFIG_FILE = "config/nohunger.json";
 
@@ -95,7 +95,7 @@ public class NoHungerConfig {
     // Helper-Methode für Enum-Namen als Text
     private Text getModeText(HungerMode hungerMode) {
         return switch (hungerMode) {
-            case OFF -> Text.translatable("config.nohunger.mode.off");
+            case NORMAL -> Text.translatable("config.nohunger.mode.normal");
             case VANILLA_SPECIAL_FOODS -> Text.translatable("config.nohunger.mode.vanilla_special_foods");
             case ALL_FOODS -> Text.translatable("config.nohunger.mode.all_foods");
             case NO_FOOD -> Text.translatable("config.nohunger.mode.no_food");

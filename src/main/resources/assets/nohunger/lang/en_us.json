@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "General",
   "config.nohunger.mode.select": "Select mode",
 
-  "config.nohunger.mode.off": "Off",
+  "config.nohunger.mode.normal": "Normal",
   "config.nohunger.mode.vanilla_special_foods": "Special Only",
   "config.nohunger.mode.all_foods": "Always All",
   "config.nohunger.mode.no_food": "No Eating",

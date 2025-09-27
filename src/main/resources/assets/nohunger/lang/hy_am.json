@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "Ընդհանուր",
   "config.nohunger.mode.select": "Ընտրել ռեժիմը",
 
-  "config.nohunger.mode.off": "Անջատված",
+  "config.nohunger.mode.normal": "Նորմալ",
   "config.nohunger.mode.vanilla_special_foods": "Միայն հատուկ",
   "config.nohunger.mode.all_foods": "Բոլորը ուտելի են",
   "config.nohunger.mode.no_food": "Ոչինչ չի ուտելի",

@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "일반",
   "config.nohunger.mode.select": "모드 선택",
 
-  "config.nohunger.mode.off": "꺼짐",
+  "config.nohunger.mode.normal": "정상",
   "config.nohunger.mode.vanilla_special_foods": "특수 음식만",
   "config.nohunger.mode.all_foods": "모두 먹을 수 있음",
   "config.nohunger.mode.no_food": "먹을 수 없음",

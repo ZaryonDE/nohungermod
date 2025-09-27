@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "通用",
   "config.nohunger.mode.select": "选择模式",
 
-  "config.nohunger.mode.off": "关闭",
+  "config.nohunger.mode.normal": "普通的",
   "config.nohunger.mode.vanilla_special_foods": "仅特殊食物",
   "config.nohunger.mode.all_foods": "全部可食用",
   "config.nohunger.mode.no_food": "禁止食用",

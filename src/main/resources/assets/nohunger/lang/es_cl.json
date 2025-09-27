@@ -3,7 +3,7 @@
   "config.nohunger.category.general": "General",
   "config.nohunger.mode.select": "Seleccionar modo",
 
-  "config.nohunger.mode.off": "Apagado",
+  "config.nohunger.mode.normal": "Normal",
   "config.nohunger.mode.vanilla_special_foods": "Solo especial",
   "config.nohunger.mode.all_foods": "Todo comestible",
   "config.nohunger.mode.no_food": "Nada comestible",
