@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Можно есть даже при полном уровне голода",
   "config.nohunger.tooltip.no_food": "Нельзя есть ничего",
 
-  "mod.nohunger.description": "Предотвращает потерю голода – шкала голода всегда полная."
+  "config.nohunger.peaceful_hunger.tooltip": "Позволяет избавиться от чувства голода",
+  "config.nohunger.peaceful_hunger": "Активируйте голод в Мирном режиме",
+
+  "config.nohunger.mode.survival_campfire": "Костер для выживания",
+  "config.nohunger.tooltip.survival_campfire": "Есть можно только возле костра",
+
+  "mod.nohunger.description": "Предотвращает потерю голода – шкала голода всегда полная"
 }
