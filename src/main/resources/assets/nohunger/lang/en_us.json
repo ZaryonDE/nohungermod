@@ -13,6 +13,15 @@
   "config.nohunger.tooltip.all_foods": "Food can always be eaten, even at full hunger.",
   "config.nohunger.tooltip.no_food": "Eating is completely blocked.",
 
+  "config.nohunger.show_hunger_bar": "Show Hunger Bar",
+  "config.nohunger.show_hunger_bar.tooltip": "Display the hunger bar or hide it.",
+
+  "config.nohunger.peaceful_hunger.tooltip": "Enables hunger loss",
+  "config.nohunger.peaceful_hunger": "Activate hunger in Peaceful",
+
+  "config.nohunger.mode.survival_campfire": "Survival Campfire",
+  "config.nohunger.tooltip.survival_campfire": "You can only eat when near a campfire.",
+
   "mod.nohunger.description": "Prevents hunger from decreasing — your hunger bar always stays full."
 }
 

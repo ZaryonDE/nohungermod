@@ -13,5 +13,14 @@
   "config.nohunger.tooltip.all_foods": "Trotz voller Hungerleiste essen möglich",
   "config.nohunger.tooltip.no_food": "Essen komplett blockiert",
 
+  "config.nohunger.show_hunger_bar": "Hungerleiste anzeigen",
+  "config.nohunger.show_hunger_bar.tooltip": "Zeige die Hungerleiste an oder blende sie aus.",
+
+  "config.nohunger.peaceful_hunger.tooltip": "Ermöglicht den Hungerverlust",
+  "config.nohunger.peaceful_hunger": "Aktiviere den Hunger in Friedlich",
+
+  "config.nohunger.mode.survival_campfire": "Survival Lagerfeuer",
+  "config.nohunger.tooltip.survival_campfire": "Du kannst nur in der nähe von Lagerfeuer essen",
+
   "mod.nohunger.description": "Verhindert Hungerverlust – deine Hungerleiste bleibt immer voll."
 }
