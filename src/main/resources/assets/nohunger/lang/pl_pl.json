@@ -3,15 +3,21 @@
   "config.nohunger.category.general": "Ogólne",
   "config.nohunger.mode.select": "Wybierz tryb",
 
-  "config.nohunger.mode.off": "Wyłączony",
+  "config.nohunger.mode.normal": "zwykły",
   "config.nohunger.mode.vanilla_special_foods": "Tylko specjalne",
   "config.nohunger.mode.all_foods": "Wszystko jadalne",
   "config.nohunger.mode.no_food": "Nic nie jadalne",
 
-  "config.nohunger.tooltip.off": "Mod jest wyłączony",
+  "config.nohunger.tooltip.normal": "Mod jest wyłączony",
   "config.nohunger.tooltip.vanilla_special_foods": "Można jeść tylko jedzenie z efektami",
   "config.nohunger.tooltip.all_foods": "Można jeść nawet przy pełnym pasku głodu",
   "config.nohunger.tooltip.no_food": "Nie można jeść niczego",
+
+  "config.nohunger.peaceful_hunger.tooltip": "Pozwala na utratę głodu",
+  "config.nohunger.peaceful_hunger": "Aktywuj głód w Pokoju",
+
+  "config.nohunger.mode.survival_campfire": "Ognisko przetrwania",
+  "config.nohunger.tooltip.survival_campfire": "Można jeść tylko w pobliżu ogniska",
 
   "mod.nohunger.description": "Zapobiega utracie głodu – pasek głodu zawsze pozostaje pełny."
 }

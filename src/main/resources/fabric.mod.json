@@ -8,7 +8,7 @@
     "Zaryon"
   ],
   "license": "MIT",
-  "icon": "assets/nohunger/nohungermod.png",
+  "icon": "assets/nohunger/NoHungerMod.png",
   "entrypoints": {
     "main": [
       "de.zaryon.nohunger.NoHungerMod"
@@ -23,7 +23,7 @@
   "depends": {
     "fabricloader": ">=0.17.2",
     "fabric": "*",
-    "minecraft": "1.20.2",
+    "minecraft": "1.20.1",
     "cloth-config": "*",
     "modmenu": "*"
   },
