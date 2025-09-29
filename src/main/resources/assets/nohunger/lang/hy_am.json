@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Կարող եք ուտել նույնիսկ լիքի սովի տողով",
   "config.nohunger.tooltip.no_food": "Ուտել հնարավոր չէ",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Թույլ է տալիս կորցնել քաղցը",
+  "config.nohunger.peaceful_hunger": "Ակտիվացրեք քաղցը խաղաղության մեջ",
+
+  "config.nohunger.mode.survival_campfire": "Գոյատևման խարույկ",
+  "config.nohunger.tooltip.survival_campfire": "Դուք կարող եք ուտել միայն խարույկի մոտ",
+
   "mod.nohunger.description": "Պայմանավորված չէ սովի նվազմամբ – ձեր սովի տողը միշտ լի է։"
 }

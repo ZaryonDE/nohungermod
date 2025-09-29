@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Se puede comer incluso con la barra de hambre llena",
   "config.nohunger.tooltip.no_food": "No se puede comer nada",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Permite la pérdida del hambre.",
+  "config.nohunger.peaceful_hunger": "Activar el hambre en Paz",
+
+  "config.nohunger.mode.survival_campfire": "Fogata de supervivencia",
+  "config.nohunger.tooltip.survival_campfire": "Sólo se puede comer cerca de una fogata.",
+
   "mod.nohunger.description": "Evita la pérdida de hambre: tu barra de hambre siempre se mantiene llena."
 }

@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "On peut manger même avec la barre de faim pleine",
   "config.nohunger.tooltip.no_food": "Impossible de manger quoi que ce soit",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Permet de perdre la faim",
+  "config.nohunger.peaceful_hunger": "Activer la faim dans Peaceful",
+
+  "config.nohunger.mode.survival_campfire": "Feu de camp de survie",
+  "config.nohunger.tooltip.survival_campfire": "Vous ne pouvez manger qu'à proximité d'un feu de camp",
+
   "mod.nohunger.description": "Empêche la perte de faim – votre barre de faim reste toujours pleine."
 }

@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Jíst lze i při plném ukazateli hladu",
   "config.nohunger.tooltip.no_food": "Jíst není možné",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Umožňuje ztrátu hladu",
+  "config.nohunger.peaceful_hunger": "Aktivujte hlad v režimu Peaceful",
+
+  "config.nohunger.mode.survival_campfire": "Přežití táborák",
+  "config.nohunger.tooltip.survival_campfire": "Jíst můžete pouze u táboráku",
+
   "mod.nohunger.description": "Zabraňuje ztrátě hladu – ukazatel hladu zůstává vždy plný."
 }

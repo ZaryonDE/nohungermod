@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "即使飢餓條已滿也可進食",
   "config.nohunger.tooltip.no_food": "無法進食任何食物",
 
+  "config.nohunger.peaceful_hunger.tooltip": "消除饥饿感",
+  "config.nohunger.peaceful_hunger": "在和平模式中激活饥饿",
+
+  "config.nohunger.mode.survival_campfire": "生存篝火",
+  "config.nohunger.tooltip.survival_campfire": "你只能在篝火旁吃饭",
+
   "mod.nohunger.description": "防止飢餓減少 – 飢餓條始終保持滿值。"
 }

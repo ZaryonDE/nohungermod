@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Można jeść nawet przy pełnym pasku głodu",
   "config.nohunger.tooltip.no_food": "Nie można jeść niczego",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Pozwala na utratę głodu",
+  "config.nohunger.peaceful_hunger": "Aktywuj głód w Pokoju",
+
+  "config.nohunger.mode.survival_campfire": "Ognisko przetrwania",
+  "config.nohunger.tooltip.survival_campfire": "Można jeść tylko w pobliżu ogniska",
+
   "mod.nohunger.description": "Zapobiega utracie głodu – pasek głodu zawsze pozostaje pełny."
 }
