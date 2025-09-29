@@ -13,5 +13,11 @@
   "config.nohunger.tooltip.all_foods": "Dolu açlık çubuğunda bile yemek yenebilir",
   "config.nohunger.tooltip.no_food": "Hiçbir şey yenemez",
 
+  "config.nohunger.peaceful_hunger.tooltip": "Açlık hissinin kaybolmasını sağlar",
+  "config.nohunger.peaceful_hunger": "Peaceful'da açlığı aktive edin",
+
+  "config.nohunger.mode.survival_campfire": "Hayatta kalma kamp ateşi",
+  "config.nohunger.tooltip.survival_campfire": "Sadece kamp ateşinin yakınında yemek yiyebilirsiniz",
+
   "mod.nohunger.description": "Açlık kaybını önler – açlık çubuğunuz her zaman dolu kalır."
 }
