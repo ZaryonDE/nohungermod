@@ -27,8 +27,8 @@ fun incrementVersion(ver: String): String {
 }
 
 // Initiale Version setzen
-var currentVersion = versionProps.getProperty("modVersion")
-version = currentVersion
+version = versionProps.getProperty("modVersion")
+var currentVersion = version.toString()
 
 // Vor jedem Build Version hochzählen
 tasks.named("build") {
@@ -44,7 +44,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesBaseName = "NoHunger-1.20.2-Fabric"
+    archivesName = "NoHunger-1.20.2-Fabric"
 }
 
 repositories {
@@ -79,6 +79,15 @@ tasks.withType<JavaCompile> {
 tasks.processResources {
     filesMatching("fabric.mod.json") {
         expand("version" to project.version)
+    }
+}
+
+// -----------------------------
+// Gradle/IDE: Sources nicht von Abhängigkeiten herunterladen
+idea {
+    module {
+        isDownloadSources = false
+        isDownloadJavadoc = false
     }
 }
 
