@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Գոյատևման խարույկ",
   "config.nohunger.tooltip.survival_campfire": "Դուք կարող եք ուտել միայն խարույկի մոտ",
 
+  "message.nohunger.campfire_too_far": "Խարույկից չափազանց հեռու՝ չես կարող ուտել։",
+  "message.nohunger.cake_distance_error": "Տորթ ուտելը հնարավոր է միայն խարույկի մոտ։",
+
   "mod.nohunger.description": "Պայմանավորված չէ սովի նվազմամբ – ձեր սովի տողը միշտ լի է։"
 }

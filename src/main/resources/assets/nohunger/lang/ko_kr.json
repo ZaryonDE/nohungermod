@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "생존 캠프파이어",
   "config.nohunger.tooltip.survival_campfire": "캠프파이어 근처에서만 식사가 가능합니다.",
 
+  "message.nohunger.campfire_too_far": "캠프파이어에서 너무 멀리 떨어져 있으면 먹을 수 없습니다.",
+  "message.nohunger.cake_distance_error": "케이크를 먹는 것은 캠프파이어 근처에서만 가능합니다.",
+
   "mod.nohunger.description": "배고픔 감소를 방지 – 배고픔 게이지가 항상 가득 찹니다."
 }
