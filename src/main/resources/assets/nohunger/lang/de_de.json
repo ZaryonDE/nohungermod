@@ -22,5 +22,8 @@
   "config.nohunger.mode.survival_campfire": "Survival Lagerfeuer",
   "config.nohunger.tooltip.survival_campfire": "Du kannst nur in der nähe von Lagerfeuer essen",
 
+  "message.nohunger.campfire_too_far": "Zu weit vom Lagerfeuer entfernt – du kannst nicht essen.",
+  "message.nohunger.cake_distance_error": "Kuchen essen geht nur in der Nähe eines Lagerfeuers.",
+
   "mod.nohunger.description": "Verhindert Hungerverlust – deine Hungerleiste bleibt immer voll."
 }
