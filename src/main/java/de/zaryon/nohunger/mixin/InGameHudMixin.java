@@ -12,44 +12,43 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
 
+    // Die Sprite-IDs für die Hunger-Icons in Minecraft 1.20+
     @Unique
-    private static final Identifier HUNGER_TEXTURE = new Identifier("minecraft", "textures/gui/icons.png");
+    private static final Identifier FOOD_EMPTY_SPRITE = new Identifier("minecraft", "hud/food_empty");
+    @Unique
+    private static final Identifier FOOD_FULL_SPRITE = new Identifier("minecraft", "hud/food_full");
+    @Unique
+    private static final Identifier FOOD_HALF_SPRITE = new Identifier("minecraft", "hud/food_half");
 
     /**
-     * Blockiert nur das Rendern der Hungerleiste inkl. grüner Drumsticks vom Hunger-Effekt.
-     * Andere HUD-Elemente (Herzen, Rüstung, Luftblasen) bleiben sichtbar.
+     * Fängt jeden Aufruf zum Zeichnen einer GUI-Textur ab.
+     * Wenn es sich um eine der drei Hunger-Sprites handelt (leer, voll oder halb),
+     * wird der Zeichenvorgang übersprungen.
+     * Dies entfernt sowohl die gefüllten Icons als auch den leeren Rahmen.
      */
     @Redirect(
             method = "renderStatusBars",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIII)V"
+                    // Dies ist der Aufruf, der jedes einzelne HUD-Icon zeichnet.
+                    target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V"
             )
     )
-    private void hideHungerOnly(DrawContext ctx, Identifier texture, int x, int y, int u, int v, int width, int height) {
+    private void hideHungerOnly(DrawContext ctx, Identifier texture, int x, int y, int width, int height) {
         boolean hideHunger = !NoHungerConfig.getInstance().isShowHungerBar();
 
-        if (hideHunger && texture.equals(HUNGER_TEXTURE) && isHungerIcon(u, v)) {
-            // Hungerleiste überspringen
-            return;
+        if (hideHunger) {
+            // WICHTIG: Luftblasen verwenden eine ANDERE ID. Wir prüfen NUR auf Hunger-Sprites.
+            if (texture.equals(FOOD_EMPTY_SPRITE) ||
+                    texture.equals(FOOD_FULL_SPRITE) ||
+                    texture.equals(FOOD_HALF_SPRITE)) {
+
+                // Hunger-Sprite überspringen (sowohl Rahmen als auch gefüllte Icons)
+                return;
+            }
         }
 
-        // Alles andere normal zeichnen
-        ctx.drawTexture(texture, x, y, u, v, width, height);
-    }
-
-    /**
-     * Prüft, ob das Symbol zur Hungerleiste gehört.
-     * Deckt normale und grüne (verrottetes Fleisch) Hunger-Symbole ab.
-     */
-    @Unique
-    private boolean isHungerIcon(int u, int v) {
-        // Normale Hungerleiste: leer (v=27), voll (v=36)
-        if ((v == 27 || v == 36) && u >= 16 && u <= 71) return true;
-
-        // Grüne Drumsticks / verrottetes Fleisch: leer (v=54), voll (v=45)
-        if ((v == 45 || v == 54) && u >= 16 && u <= 71) return true;
-
-        return false;
+        // Sonst normal zeichnen (Herzen, Air, Tränke, etc.)
+        ctx.drawGuiTexture(texture, x, y, width, height);
     }
 }

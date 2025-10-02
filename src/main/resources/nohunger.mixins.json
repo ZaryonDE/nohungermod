@@ -17,5 +17,6 @@
   "server": [],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "nohunger.refmap.json"
 }
