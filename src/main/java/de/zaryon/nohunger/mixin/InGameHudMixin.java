@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
 
-    // Die Sprite-IDs für die Hunger-Icons in Minecraft 1.20+
     @Unique
     private static final Identifier FOOD_EMPTY_SPRITE = new Identifier("minecraft", "hud/food_empty");
     @Unique
@@ -38,17 +37,14 @@ public abstract class InGameHudMixin {
         boolean hideHunger = !NoHungerConfig.getInstance().isShowHungerBar();
 
         if (hideHunger) {
-            // WICHTIG: Luftblasen verwenden eine ANDERE ID. Wir prüfen NUR auf Hunger-Sprites.
             if (texture.equals(FOOD_EMPTY_SPRITE) ||
                     texture.equals(FOOD_FULL_SPRITE) ||
                     texture.equals(FOOD_HALF_SPRITE)) {
 
-                // Hunger-Sprite überspringen (sowohl Rahmen als auch gefüllte Icons)
                 return;
             }
         }
-
-        // Sonst normal zeichnen (Herzen, Air, Tränke, etc.)
+        
         ctx.drawGuiTexture(texture, x, y, width, height);
     }
 }
