@@ -75,7 +75,7 @@ public class NoHungerMod implements ModInitializer {
 
                 if (!nearCampfire) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Zu weit vom Lagerfeuer entfernt – du kannst nicht essen."),
+                            net.minecraft.text.Text.translatable("message.nohunger.campfire_too_far"),
                             true
                     );
                     return TypedActionResult.fail(stack);
@@ -134,7 +134,7 @@ public class NoHungerMod implements ModInitializer {
 
                 if (!nearCampfire) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Kuchen essen geht nur in der Nähe eines Lagerfeuers."),
+                            net.minecraft.text.Text.translatable("message.nohunger.cake_distance_error"),
                             true
                     );
                     return ActionResult.FAIL; // Blockiert Kuchen-Essen

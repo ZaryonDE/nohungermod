@@ -3,7 +3,7 @@
   "id": "nohunger",
   "version": "$version",
   "name": "No Hunger Mod",
-  "description": "Prevents hunger loss – your hunger bar stays full.",
+  "description": "Prevents hunger from decreasing — your hunger bar always stays full.",
   "authors": [
     "Zaryon"
   ],
