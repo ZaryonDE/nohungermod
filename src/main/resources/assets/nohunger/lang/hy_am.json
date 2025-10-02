@@ -3,15 +3,21 @@
   "config.nohunger.category.general": "Ընդհանուր",
   "config.nohunger.mode.select": "Ընտրել ռեժիմը",
 
-  "config.nohunger.mode.off": "Անջատված",
+  "config.nohunger.mode.normal": "Նորմալ",
   "config.nohunger.mode.vanilla_special_foods": "Միայն հատուկ",
   "config.nohunger.mode.all_foods": "Բոլորը ուտելի են",
   "config.nohunger.mode.no_food": "Ոչինչ չի ուտելի",
 
-  "config.nohunger.tooltip.off": "Մոդը անջատված է",
+  "config.nohunger.tooltip.normal": "Մոդը անջատված է",
   "config.nohunger.tooltip.vanilla_special_foods": "Կարող եք ուտել միայն ազդեցություն ունեցող սնունդ",
   "config.nohunger.tooltip.all_foods": "Կարող եք ուտել նույնիսկ լիքի սովի տողով",
   "config.nohunger.tooltip.no_food": "Ուտել հնարավոր չէ",
+
+  "config.nohunger.peaceful_hunger.tooltip": "Թույլ է տալիս կորցնել քաղցը",
+  "config.nohunger.peaceful_hunger": "Ակտիվացրեք քաղցը խաղաղության մեջ",
+
+  "config.nohunger.mode.survival_campfire": "Գոյատևման խարույկ",
+  "config.nohunger.tooltip.survival_campfire": "Դուք կարող եք ուտել միայն խարույկի մոտ",
 
   "mod.nohunger.description": "Պայմանավորված չէ սովի նվազմամբ – ձեր սովի տողը միշտ լի է։"
 }
