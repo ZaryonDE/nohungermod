@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "生存篝火",
   "config.nohunger.tooltip.survival_campfire": "你只能在營火旁吃飯",
 
+  "message.nohunger.campfire_too_far": "離篝火太遠——你就不能吃飯。",
+  "message.nohunger.cake_distance_error": "只有在營火旁才可以吃蛋糕。",
+
   "mod.nohunger.description": "防止饥饿减少 – 饥饿条始终保持满值。"
 }

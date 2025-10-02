@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Костер для выживания",
   "config.nohunger.tooltip.survival_campfire": "Есть можно только возле костра",
 
+  "message.nohunger.campfire_too_far": "Слишком далеко от костра — нельзя есть.",
+  "message.nohunger.cake_distance_error": "Есть торт можно только возле костра.",
+
   "mod.nohunger.description": "Предотвращает потерю голода – шкала голода всегда полная"
 }

@@ -22,6 +22,9 @@
   "config.nohunger.mode.survival_campfire": "Survival Campfire",
   "config.nohunger.tooltip.survival_campfire": "You can only eat when near a campfire.",
 
+  "message.nohunger.campfire_too_far": "Too far from the campfire – you cannot eat.",
+  "message.nohunger.cake_distance_error": "Cake can only be eaten near a campfire.",
+
   "mod.nohunger.description": "Prevents hunger from decreasing — your hunger bar always stays full."
 }
 

@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Fogata de supervivencia",
   "config.nohunger.tooltip.survival_campfire": "Sólo se puede comer cerca de una fogata.",
 
+  "message.nohunger.campfire_too_far": "Demasiado lejos de la fogata: no puedes comer.",
+  "message.nohunger.cake_distance_error": "Comer pastel sólo es posible cerca de una fogata.",
+
   "mod.nohunger.description": "Evita la pérdida de hambre: tu barra de hambre siempre se mantiene llena."
 }

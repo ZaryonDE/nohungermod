@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Feu de camp de survie",
   "config.nohunger.tooltip.survival_campfire": "Vous ne pouvez manger qu'à proximité d'un feu de camp",
 
+  "message.nohunger.campfire_too_far": "Trop loin du feu de camp – vous ne pouvez pas manger.",
+  "message.nohunger.cake_distance_error": "Manger du gâteau n'est possible qu'à proximité d'un feu de camp.",
+
   "mod.nohunger.description": "Empêche la perte de faim – votre barre de faim reste toujours pleine."
 }

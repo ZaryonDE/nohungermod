@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Hayatta kalma kamp ateşi",
   "config.nohunger.tooltip.survival_campfire": "Sadece kamp ateşinin yakınında yemek yiyebilirsiniz",
 
+  "message.nohunger.campfire_too_far": "Kamp ateşinden çok uzaktaysanız yemek yiyemezsiniz.",
+  "message.nohunger.cake_distance_error": "Pasta yemek ancak kamp ateşinin yanında mümkündür.",
+
   "mod.nohunger.description": "Açlık kaybını önler – açlık çubuğunuz her zaman dolu kalır."
 }

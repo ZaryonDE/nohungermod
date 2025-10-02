@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Ognisko przetrwania",
   "config.nohunger.tooltip.survival_campfire": "Można jeść tylko w pobliżu ogniska",
 
+  "message.nohunger.campfire_too_far": "Jeśli jesteś za daleko od ogniska, nie możesz jeść.",
+  "message.nohunger.cake_distance_error": "Jedzenie ciasta jest możliwe tylko w pobliżu ogniska.",
+
   "mod.nohunger.description": "Zapobiega utracie głodu – pasek głodu zawsze pozostaje pełny."
 }

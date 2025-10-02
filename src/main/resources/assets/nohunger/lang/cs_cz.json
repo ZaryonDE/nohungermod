@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Přežití táborák",
   "config.nohunger.tooltip.survival_campfire": "Jíst můžete pouze u táboráku",
 
+  "message.nohunger.campfire_too_far": "Příliš daleko od ohně – nemůžete se tam najíst.",
+  "message.nohunger.cake_distance_error": "Jíst koláč je možné pouze u táboráku.",
+
   "mod.nohunger.description": "Zabraňuje ztrátě hladu – ukazatel hladu zůstává vždy plný."
 }

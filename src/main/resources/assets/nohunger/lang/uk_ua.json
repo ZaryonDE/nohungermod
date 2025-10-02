@@ -19,5 +19,8 @@
   "config.nohunger.mode.survival_campfire": "Багаття виживання",
   "config.nohunger.tooltip.survival_campfire": "Їсти можна лише біля багаття",
 
+  "message.nohunger.campfire_too_far": "Занадто далеко від багаття – їсти не можна.",
+  "message.nohunger.cake_distance_error": "Їсти торт можна лише біля багаття.",
+
   "mod.nohunger.description": "Запобігає втраті голоду – ваша шкала голоду завжди повна."
 }
