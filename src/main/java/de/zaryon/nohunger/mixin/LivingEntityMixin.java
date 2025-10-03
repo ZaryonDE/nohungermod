@@ -32,16 +32,21 @@ public abstract class LivingEntityMixin {
             return; // Wenn kein Spieler → nichts ändern
         }
 
-        // Nur blocken, wenn Hungerleiste aus und Modus != NORMAL
+        // Holen des aktuellen Modus
+        NoHungerConfig.HungerMode currentMode = NoHungerConfig.getInstance().getMode();
+
+        // --- NEUE BEDINGUNG ---
+        // Nur blocken, wenn Hungerleiste aus UND der Modus weder NORMAL noch SURVIVAL_CAMPFIRE ist.
         if (!NoHungerConfig.getInstance().isShowHungerBar() &&
-                NoHungerConfig.getInstance().getMode() != NoHungerConfig.HungerMode.NORMAL) {
+                currentMode != NoHungerConfig.HungerMode.NORMAL &&
+                currentMode != NoHungerConfig.HungerMode.SURVIVAL_CAMPFIRE) {
 
             if (effect.getEffectType() == StatusEffects.HUNGER) {
                 // Nur blocken, wenn Spieler tatsächlich Rotten Flesh in der Hand hält
                 for (Hand hand : Hand.values()) {
                     ItemStack stack = player.getStackInHand(hand);
                     if (stack.getItem() == Items.ROTTEN_FLESH) {
-                        cir.setReturnValue(false);
+                        cir.setReturnValue(false); // Effekt blockieren
                         return;
                     }
                 }

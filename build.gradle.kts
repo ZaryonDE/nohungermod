@@ -54,7 +54,6 @@ repositories {
     maven("https://api.modrinth.com/maven")
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
-    // WICHTIG: FÜR MIXIN-PROCESSOR ERFORDERLICH
     maven("https://repo.spongepowered.org/maven")
 }
 
@@ -65,9 +64,6 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.91.6+1.20.2")
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:12.0.137")
     modImplementation("com.terraformersmc:modmenu:8.0.1")
-
-    // **FINAL KORREKTUR: STANDARD MIXIN ANNOTATION PROCESSOR**
-    // Der externe Transformer konnte nicht gefunden werden. Wir verwenden den Standard Mixin Prozessor.
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
 
@@ -95,16 +91,10 @@ tasks.processResources {
     }
 }
 
-// ----------------------------------------------------
-// KORREKTUR FÜR 'nohunger.refmap.json' DUPLIKAT-FEHLER
-// ----------------------------------------------------
 tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
-// ----------------------------------------------------
 
-// -----------------------------
-// Gradle/IDE: Sources nicht von Abhängigkeiten herunterladen
 idea {
     module {
         isDownloadSources = false
