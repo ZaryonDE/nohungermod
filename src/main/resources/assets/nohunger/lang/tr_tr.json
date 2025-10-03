@@ -3,15 +3,24 @@
   "config.nohunger.category.general": "Genel",
   "config.nohunger.mode.select": "Mod seç",
 
-  "config.nohunger.mode.off": "Kapalı",
+  "config.nohunger.mode.normal": "Normal",
   "config.nohunger.mode.vanilla_special_foods": "Sadece özel",
   "config.nohunger.mode.all_foods": "Hepsi yenebilir",
   "config.nohunger.mode.no_food": "Hiçbir şey yenmez",
 
-  "config.nohunger.tooltip.off": "Mod kapalı",
+  "config.nohunger.tooltip.normal": "Mod kapalı",
   "config.nohunger.tooltip.vanilla_special_foods": "Sadece efektli yiyecekler yenebilir",
   "config.nohunger.tooltip.all_foods": "Dolu açlık çubuğunda bile yemek yenebilir",
   "config.nohunger.tooltip.no_food": "Hiçbir şey yenemez",
+
+  "config.nohunger.peaceful_hunger.tooltip": "Açlık hissinin kaybolmasını sağlar",
+  "config.nohunger.peaceful_hunger": "Peaceful'da açlığı aktive edin",
+
+  "config.nohunger.mode.survival_campfire": "Hayatta kalma kamp ateşi",
+  "config.nohunger.tooltip.survival_campfire": "Sadece kamp ateşinin yakınında yemek yiyebilirsiniz",
+
+  "message.nohunger.campfire_too_far": "Kamp ateşinden çok uzaktaysanız yemek yiyemezsiniz.",
+  "message.nohunger.cake_distance_error": "Pasta yemek ancak kamp ateşinin yanında mümkündür.",
 
   "mod.nohunger.description": "Açlık kaybını önler – açlık çubuğunuz her zaman dolu kalır."
 }
