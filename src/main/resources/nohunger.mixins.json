@@ -5,11 +5,18 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AllFoodsMixin",
-    "DamageAdjustMixin"
+    "DamageAdjustMixin",
+    "FoodHungerMixin",
+    "PlayerHungerMixin"
   ],
-  "client": [],
+  "client": [
+    "InGameHudMixin",
+    "LivingEntityAutoFeederMixin",
+    "LivingEntityMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "nohunger.refmap.json"
 }

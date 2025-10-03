@@ -27,8 +27,8 @@ fun incrementVersion(ver: String): String {
 }
 
 // Initiale Version setzen
-var currentVersion = versionProps.getProperty("modVersion")
-version = currentVersion
+version = versionProps.getProperty("modVersion")
+var currentVersion = version.toString()
 
 // Vor jedem Build Version hochzählen
 tasks.named("build") {
@@ -44,7 +44,7 @@ tasks.named("build") {
 
 // -----------------------------
 base {
-    archivesBaseName = "NoHunger-1.20.4-Fabric"
+    archivesName = "NoHunger-1.20.4-Fabric"
 }
 
 repositories {
@@ -53,6 +53,7 @@ repositories {
     maven("https://api.modrinth.com/maven")
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
+    maven("https://repo.spongepowered.org/maven")
 }
 
 dependencies {
@@ -62,6 +63,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.97.0+1.20.4")
     modImplementation("me.shedaniel.cloth:cloth-config-fabric:13.0.138")
     modImplementation("com.terraformersmc:modmenu:9.0.0")
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
 
 java {
@@ -82,6 +84,9 @@ tasks.processResources {
     }
 }
 
+tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 // -----------------------------
 // Modrinth Upload
 // -----------------------------

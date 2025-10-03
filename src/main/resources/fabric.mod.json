@@ -8,7 +8,7 @@
     "Zaryon"
   ],
   "license": "MIT",
-  "icon": "assets/nohunger/nohungermod.png",
+  "icon": "assets/nohunger/NoHungerMod.png",
   "entrypoints": {
     "main": [
       "de.zaryon.nohunger.NoHungerMod"
