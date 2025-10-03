@@ -7,15 +7,16 @@
     "AllFoodsMixin",
     "DamageAdjustMixin",
     "FoodHungerMixin",
-    "LivingEntityAutoFeederMixin",
-    "LivingEntityMixin",
     "PlayerHungerMixin"
   ],
   "client": [
-    "InGameHudMixin"
+    "InGameHudMixin",
+    "LivingEntityAutoFeederMixin",
+    "LivingEntityMixin"
   ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "refmap": "nohunger.refmap.json"
 }
