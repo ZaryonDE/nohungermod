@@ -1,35 +1,58 @@
 package de.zaryon.nohunger.mixin;
 
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.registry.entry.RegistryEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
-public abstract class DamageAdjustMixin {
+public class DamageAdjustMixin {
 
-    @ModifyArg(
-            method = "damage(Lnet/minecraft/entity/damage/DamageSource;F)Z",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"
-            )
+    /**
+     * Minecraft 1.20.1 - Fabric - Java 17
+     */
+    @ModifyVariable(
+            method = "damage",
+            at = @At("HEAD"),
+            argsOnly = true
     )
-    private float adjustDamage(DamageSource source, float amount) {
-        if (source.isOf(DamageTypes.CACTUS)                 ||
-                source.isOf(DamageTypes.HOT_FLOOR)          ||
-                source.isOf(DamageTypes.IN_FIRE)            ||
-                source.isOf(DamageTypes.ON_FIRE)            ||
-                source.isOf(DamageTypes.FLY_INTO_WALL)      || // Buggy Flug in Wand
-                source.isOf(DamageTypes.WITHER)             ||
-                source.isOf(DamageTypes.SWEET_BERRY_BUSH)   ||
-                source.isOf(DamageTypes.DROWN)
+    private float adjustDamage(float amount, DamageSource source) {
+        RegistryEntry<DamageType> type = source.getTypeRegistryEntry();
 
-          ) {
-            return amount * 1.7f; // Schaden auf 150% erhöhen
+        if (type.matchesKey(DamageTypes.CACTUS)
+                || type.matchesKey(DamageTypes.HOT_FLOOR)
+                || type.matchesKey(DamageTypes.IN_FIRE)
+                || type.matchesKey(DamageTypes.WITHER)
+                || type.matchesKey(DamageTypes.SWEET_BERRY_BUSH)) {
+            return 1.9F;
         }
-        return amount; // alle anderen Schaden bleiben gleich
+
+        if (type.matchesKey(DamageTypes.ON_FIRE)) {
+            return 2.5F;
+        }
+
+        if (type.matchesKey(DamageTypes.DROWN)) {
+            return 3.0F;
+        }
+
+        if (type.matchesKey(DamageTypes.FREEZE)) {
+            return 2.0F;
+        }
+
+        if (type.matchesKey(DamageTypes.FALL)) {
+            if (amount < 2.0F) {
+                return 2.0F;
+            }
+        }
+
+        if (type.matchesKey(DamageTypes.STALAGMITE)) {
+            return Math.max(amount, 3.0F);
+        }
+
+        return amount;
     }
 }
