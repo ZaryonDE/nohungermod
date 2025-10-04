@@ -5,9 +5,15 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AllFoodsMixin",
-    "DamageAdjustMixin"
+    "DamageAdjustMixin",
+    "FoodHungerMixin",
+    "LivingEntityAutoFeederMixin",
+    "LivingEntityMixin",
+    "PlayerHungerMixin"
   ],
-  "client": [],
+  "client": [
+    "InGameHudMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
