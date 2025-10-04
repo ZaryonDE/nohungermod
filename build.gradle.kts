@@ -1,4 +1,6 @@
 import java.util.Properties
+import org.gradle.api.file.DuplicatesStrategy
+import org.gradle.jvm.tasks.Jar
 
 plugins {
     id("fabric-loom") version "1.7.3"
@@ -70,6 +72,10 @@ loom {
     mixin {
         defaultRefmapName.set("nohunger.refmap.json")
     }
+}
+
+tasks.withType<Jar>().configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 java {
