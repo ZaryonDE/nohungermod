@@ -16,6 +16,11 @@ out/
 *.log
 
 # ----------------------
+# VS Code
+# ----------------------
+.vscode/
+
+# ----------------------
 # Eclipse
 # ----------------------
 .classpath
@@ -33,24 +38,42 @@ bin/
 /.nb-gradle/
 
 # ----------------------
-# VS Code
-# ----------------------
-.vscode/
-
-# ----------------------
 # Mac OS
 # ----------------------
 .DS_Store
 
 # ----------------------
-# Optional: temporäre Minecraft Logs oder Dumps
+# System files
+# ----------------------
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ----------------------
+# Minecraft / Fabric Dev Environment
+# ----------------------
+/run/
+/logs/
+/config/
+/debug/
+/crash-reports/
+/saves/
+/options.txt
+/usercache.json
+/usernamecache.json
+
+# ----------------------
+# Optional: temporäre Logs oder Dumps
 # ----------------------
 hs_err_pid*.log
 *.hprof
 
 # ----------------------
-# Ausschließen, was nicht relevant ist für das Repo
+# Local Gradle / Secrets
 # ----------------------
-/local.properties
-/.gradle/
+local.properties
+
+# ----------------------
+# GitHub Actions (optional)
+# ----------------------
 /.github/workflows/release.yml
