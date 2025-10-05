@@ -7,38 +7,72 @@ import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.registry.entry.RegistryEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
 public class DamageAdjustMixin {
 
-    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void adjustDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+    /**
+     * Modifiziert den Schadenswert DIREKT, bevor er verarbeitet wird.
+     * Keine Rekursion, kein erneuter damage()-Aufruf nötig.
+     *
+     * Ziel: Spieler hat durch volle Hungerleiste permanente Regeneration (1 Herz/4s),
+     * aber KEINE Schadensquelle soll dadurch komplett negiert werden.
+     * Alle Schäden werden so angepasst, dass sie die Regeneration überwinden.
+     */
+    @ModifyVariable(
+            method = "damage",
+            at = @At("HEAD"),
+            argsOnly = true
+    )
+    private float adjustDamage(float amount, DamageSource source) {
         RegistryEntry<DamageType> type = source.getTypeRegistryEntry();
-        float newDamage = amount;
 
-        // Schädliche Quellen anpassen
+        // Schwache Umweltgefahren (Vanilla: 0.5 Schaden)
+        // Problem: Regeneration heilt 1 Herz/4s = 0.25 Herzen/Sekunde
+        // → 0.5 Schaden wird sofort geheilt
         if (type.matchesKey(DamageTypes.CACTUS)
-                || type.matchesKey(DamageTypes.HOT_FLOOR)
-                || type.matchesKey(DamageTypes.IN_FIRE)
-                || type.matchesKey(DamageTypes.CAMPFIRE)
-                || type.matchesKey(DamageTypes.WITHER)
+                || type.matchesKey(DamageTypes.HOT_FLOOR)      // Magmablock
+                || type.matchesKey(DamageTypes.IN_FIRE)        // Im Feuer stehen
+                || type.matchesKey(DamageTypes.WITHER)         // Witherrose
                 || type.matchesKey(DamageTypes.SWEET_BERRY_BUSH)) {
-            newDamage = 1.9F; // leicht erhöht
+            return 1.9F; // Überwindet Regeneration deutlich
         }
 
+        // Brennen (Vanilla: 0.5/Sekunde über Zeit)
+        // Muss höher sein, da es kontinuierlich ist
         if (type.matchesKey(DamageTypes.ON_FIRE)) {
-            newDamage = 2.9F; // deutlich erhöht, um Regeneration zu übertreffen
+            return 2.5F; // Deutlich gefährlicher, du stirbst wenn du nicht löschst
         }
 
+        // Ertrinken (Vanilla: 1.0/Sekunde)
+        // Bereits gefährlich, aber könnte stärker sein
         if (type.matchesKey(DamageTypes.DROWN)) {
-            newDamage = 3.5F; // deutlich erhöht, um Regeneration zu übertreffen
+            return 3.0F; // Schneller Tod unter Wasser = Dringlichkeit
         }
 
-        // Aufruf der Original-Methode mit modifiziertem Schaden
-        if (newDamage != amount) {
-            cir.setReturnValue(((LivingEntity)(Object)this).damage(source, newDamage));
+        // Erfrieren in Pulverschnee (Vanilla: 0.5 alle 2 Sekunden)
+        // Ohne Anpassung: Spieler ist immun gegen Pulverschnee
+        if (type.matchesKey(DamageTypes.FREEZE)) {
+            return 2.0F; // Macht Pulverschnee-Fallen wieder relevant
         }
+
+        // Niedriger Sturzschaden (unter 2 Herzen)
+        // 3-Block-Stürze würden sonst sofort geheilt werden
+        if (type.matchesKey(DamageTypes.FALL)) {
+            if (amount < 2.0F) {
+                return 2.0F; // Minimum 2 Herzen = kleine Stürze bleiben spürbar
+            }
+            // Hohe Stürze bleiben unverändert (sind ohnehin tödlich)
+        }
+
+        // Stalagmiten (Vanilla: variabel, aber oft gering)
+        if (type.matchesKey(DamageTypes.STALAGMITE)) {
+            return Math.max(amount, 3.0F); // Mindestens 3 Herzen = gefährlich
+        }
+
+        // Originalwert für alle anderen Schadensquellen
+        // (Lava, Explosionen, Mobs, etc. bleiben unverändert)
+        return amount;
     }
 }
