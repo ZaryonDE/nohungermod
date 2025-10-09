@@ -36,7 +36,17 @@ tasks.named("build") {
         versionFile.outputStream().use { versionProps.store(it, null) }
         println("Version updated: $currentVersion -> $newVersion")
         currentVersion = newVersion
-        project.version = newVersion
+        // ENTFERNT: project.version = newVersion
+    }
+}
+
+// Version für processResources setzen
+tasks.processResources {
+    // Version wird dynamisch aus currentVersion gelesen
+    inputs.property("version", provider { currentVersion })
+
+    filesMatching("fabric.mod.json") {
+        expand("version" to currentVersion)
     }
 }
 
@@ -72,12 +82,6 @@ java {
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
     options.release.set(21)
-}
-
-tasks.processResources {
-    filesMatching("fabric.mod.json") {
-        expand("version" to project.version)
-    }
 }
 
 // -----------------------------
