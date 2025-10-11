@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CampfireBlock;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,9 +24,6 @@ public class NoHungerMod implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        // ----------------------------
-        // Hunger-Modi außer NORMAL
-        // ----------------------------
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (config.getMode() == NoHungerConfig.HungerMode.NORMAL ||
                     config.getMode() == NoHungerConfig.HungerMode.SURVIVAL_CAMPFIRE) {
@@ -37,9 +36,6 @@ public class NoHungerMod implements ModInitializer {
             }
         });
 
-        // ----------------------------
-        // Item-Use Event (Items wie Brot, Apfel, etc.)
-        // ----------------------------
         UseItemCallback.EVENT.register((player, world, hand) -> {
             ItemStack stack = player.getStackInHand(hand);
 
@@ -47,36 +43,16 @@ public class NoHungerMod implements ModInitializer {
                 return TypedActionResult.pass(stack);
             }
 
-            // Spezialkost
             boolean isSpecialFood = stack.get(DataComponentTypes.FOOD) != null && (
                     stack.getItem() == Items.GOLDEN_APPLE ||
                             stack.getItem() == Items.ENCHANTED_GOLDEN_APPLE ||
                             stack.getItem() instanceof SuspiciousStewItem
             );
 
-            // Campfire-Modus
             if (config.getMode() == NoHungerConfig.HungerMode.SURVIVAL_CAMPFIRE && stack.get(DataComponentTypes.FOOD) != null) {
-                boolean nearCampfire = false;
-                BlockPos playerPos = player.getBlockPos();
-
-                for (int x = -3; x <= 3; x++) {
-                    for (int y = -3; y <= 3; y++) {
-                        for (int z = -3; z <= 3; z++) {
-                            BlockPos checkPos = playerPos.add(x, y, z);
-                            if (world.getBlockState(checkPos).getBlock() == Blocks.CAMPFIRE ||
-                                    world.getBlockState(checkPos).getBlock() == Blocks.SOUL_CAMPFIRE) {
-                                nearCampfire = true;
-                                break;
-                            }
-                        }
-                        if (nearCampfire) break;
-                    }
-                    if (nearCampfire) break;
-                }
-
-                if (!nearCampfire) {
+                if (!isNearLitCampfire(player.getBlockPos(), world)) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Zu weit vom Lagerfeuer entfernt – du kannst nicht essen."),
+                            net.minecraft.text.Text.translatable("message.nohunger.campfire_too_far"),
                             true
                     );
                     return TypedActionResult.fail(stack);
@@ -85,7 +61,6 @@ public class NoHungerMod implements ModInitializer {
                 }
             }
 
-            // Original Logik
             switch (config.getMode()) {
                 case VANILLA_SPECIAL_FOODS -> {
                     if (isSpecialFood) return TypedActionResult.pass(stack);
@@ -94,7 +69,7 @@ public class NoHungerMod implements ModInitializer {
                     if (stack.get(DataComponentTypes.FOOD) != null)  return TypedActionResult.fail(stack);
                 }
                 case ALL_FOODS -> {
-                    // Immer erlaubt
+
                 }
                 default -> {
                 }
@@ -103,44 +78,39 @@ public class NoHungerMod implements ModInitializer {
             return TypedActionResult.pass(stack);
         });
 
-        // ----------------------------
-        // Block-Use Event (für Kuchen)
-        // ----------------------------
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (config.getMode() != NoHungerConfig.HungerMode.SURVIVAL_CAMPFIRE) {
                 return ActionResult.PASS;
             }
 
             if (world.getBlockState(hitResult.getBlockPos()).getBlock() == Blocks.CAKE) {
-                // Prüfen ob Spieler in Campfire-Nähe ist
-                boolean nearCampfire = false;
-                BlockPos playerPos = player.getBlockPos();
-
-                for (int x = -3; x <= 3; x++) {
-                    for (int y = -3; y <= 3; y++) {
-                        for (int z = -3; z <= 3; z++) {
-                            BlockPos checkPos = playerPos.add(x, y, z);
-                            if (world.getBlockState(checkPos).getBlock() == Blocks.CAMPFIRE ||
-                                    world.getBlockState(checkPos).getBlock() == Blocks.SOUL_CAMPFIRE) {
-                                nearCampfire = true;
-                                break;
-                            }
-                        }
-                        if (nearCampfire) break;
-                    }
-                    if (nearCampfire) break;
-                }
-
-                if (!nearCampfire) {
+                if (!isNearLitCampfire(player.getBlockPos(), world)) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Kuchen essen geht nur in der Nähe eines Lagerfeuers."),
+                            net.minecraft.text.Text.translatable("message.nohunger.cake_distance_error"),
                             true
                     );
-                    return ActionResult.FAIL; // Blockiert Kuchen-Essen
+                    return ActionResult.FAIL;
                 }
             }
 
             return ActionResult.PASS;
         });
+    }
+    
+    private boolean isNearLitCampfire(BlockPos playerPos, net.minecraft.world.World world) {
+        for (int x = -3; x <= 3; x++) {
+            for (int y = -3; y <= 3; y++) {
+                for (int z = -3; z <= 3; z++) {
+                    BlockPos checkPos = playerPos.add(x, y, z);
+                    BlockState state = world.getBlockState(checkPos);
+
+                    if ((state.getBlock() == Blocks.CAMPFIRE || state.getBlock() == Blocks.SOUL_CAMPFIRE)
+                            && state.get(CampfireBlock.LIT)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

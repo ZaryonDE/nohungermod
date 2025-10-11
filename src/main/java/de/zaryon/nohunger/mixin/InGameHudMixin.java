@@ -20,16 +20,13 @@ public abstract class InGameHudMixin {
             cancellable = true
     )
     private void blockHungerTextures(Identifier texture, int x, int y, int width, int height, CallbackInfo ci) {
-        // Prüfe ob Hunger-Effekt aktiv ist
         PlayerEntity player = MinecraftClient.getInstance().player;
         boolean hasHungerEffect = player != null && player.hasStatusEffect(StatusEffects.HUNGER);
 
-        // Wenn Hunger-Effekt aktiv: Hungerleiste IMMER anzeigen
         if (hasHungerEffect) {
-            return; // Zeige Hungerleiste
+            return;
         }
 
-        // Sonst: Config-Einstellung beachten
         if (!NoHungerConfig.getInstance().isShowHungerBar()) {
             String path = texture.getPath();
 

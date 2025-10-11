@@ -17,9 +17,7 @@ public abstract class AllFoodsMixin {
         NoHungerConfig.HungerMode mode = NoHungerConfig.getInstance().getMode();
         ItemStack stack = player.getMainHandStack();
 
-        // ---- ALL_FOODS ----
         if (mode == NoHungerConfig.HungerMode.ALL_FOODS) {
-            // Alles essbar: egal ob Item oder Kuchenblock
             cir.setReturnValue(true);
             return;
         }
