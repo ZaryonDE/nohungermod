@@ -19,17 +19,10 @@ public abstract class InGameHudMixin {
     @Unique
     private static final Identifier FOOD_HALF_SPRITE = new Identifier("minecraft", "hud/food_half");
 
-    /**
-     * Fängt jeden Aufruf zum Zeichnen einer GUI-Textur ab.
-     * Wenn es sich um eine der drei Hunger-Sprites handelt (leer, voll oder halb),
-     * wird der Zeichenvorgang übersprungen.
-     * Dies entfernt sowohl die gefüllten Icons als auch den leeren Rahmen.
-     */
     @Redirect(
             method = "renderStatusBars",
             at = @At(
                     value = "INVOKE",
-                    // Dies ist der Aufruf, der jedes einzelne HUD-Icon zeichnet.
                     target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V"
             )
     )
