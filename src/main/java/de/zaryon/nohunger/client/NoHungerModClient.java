@@ -22,7 +22,6 @@ public class NoHungerModClient implements ClientModInitializer, ModMenuApi {
         return parent -> NoHungerConfig.getInstance().createConfigScreen().setParentScreen(parent).build();
     }
 
-    // Methode zur Bereitstellung der Beschreibung an ModMenu
     public Text getDescription() {
         return Text.translatable("mod.nohunger.description");
     }
