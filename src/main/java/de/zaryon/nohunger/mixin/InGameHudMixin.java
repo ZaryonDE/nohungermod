@@ -13,10 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(DrawContext.class)
 public abstract class InGameHudMixin {
 
-    /**
-     * Fängt ALLE Texture-Draw-Aufrufe ab und blockiert nur Hunger-Texturen,
-     * wenn die Config dies verlangt.
-     */
     @Inject(
             method = "drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V",
             at = @At("HEAD"),
@@ -26,14 +22,13 @@ public abstract class InGameHudMixin {
         if (!NoHungerConfig.getInstance().isShowHungerBar()) {
             String path = texture.getPath();
 
-            // Blockiere nur Hunger-Icons (nicht Luft, Herzen, Rüstung)
             if (path.contains("food_") ||
                     path.contains("hunger_") ||
                     path.equals("hud/food_empty") ||
                     path.equals("hud/food_half") ||
                     path.equals("hud/food_full")) {
 
-                ci.cancel(); // Zeichne diese Textur nicht
+                ci.cancel();
             }
         }
     }
