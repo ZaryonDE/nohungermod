@@ -10,6 +10,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -50,7 +51,7 @@ public class NoHungerMod implements ModInitializer {
             if (config.getMode() == NoHungerConfig.HungerMode.SURVIVAL_CAMPFIRE && stack.get(DataComponentTypes.FOOD) != null) {
                 if (!isNearCampfire(player.getBlockPos(), world)) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Zu weit vom Lagerfeuer entfernt – du kannst nicht essen."),
+                            net.minecraft.text.Text.translatable("message.nohunger.campfire_too_far"),
                             true
                     );
                     return ActionResult.FAIL;
@@ -84,7 +85,7 @@ public class NoHungerMod implements ModInitializer {
             if (world.getBlockState(hitResult.getBlockPos()).getBlock() == Blocks.CAKE) {
                 if (!isNearCampfire(player.getBlockPos(), world)) {
                     player.sendMessage(
-                            net.minecraft.text.Text.literal("Kuchen essen geht nur in der Nähe eines Lagerfeuers."),
+                            net.minecraft.text.Text.translatable("message.nohunger.cake_distance_error"),
                             true
                     );
                     return ActionResult.FAIL;
