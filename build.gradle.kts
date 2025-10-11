@@ -36,7 +36,6 @@ tasks.named("build") {
         versionFile.outputStream().use { versionProps.store(it, null) }
         println("Version updated: $currentVersion -> $newVersion")
         currentVersion = newVersion
-        project.version = newVersion
     }
 }
 
@@ -72,12 +71,6 @@ java {
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
     options.release.set(21)
-}
-
-tasks.processResources {
-    filesMatching("fabric.mod.json") {
-        expand("version" to project.version)
-    }
 }
 
 // -----------------------------
