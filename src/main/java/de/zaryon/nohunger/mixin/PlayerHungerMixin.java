@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(PlayerEntity.class)
 public class PlayerHungerMixin {
 
-    // Erzwingt HARD nur dann, wenn Peaceful + Config aktiv
     @Redirect(
             method = "tickMovement",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;getDifficulty()Lnet/minecraft/world/Difficulty;")
