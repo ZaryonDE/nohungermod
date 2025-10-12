@@ -12,11 +12,6 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(LivingEntity.class)
 public class DamageAdjustMixin {
 
-    /**
-     * Minecraft 1.20.2 - Fabric - Java 17
-     *
-     * Modifiziert Schadenswerte direkt, ohne Rekursion.
-     */
     @ModifyVariable(
             method = "damage",
             at = @At("HEAD"),
