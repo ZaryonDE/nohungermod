@@ -60,7 +60,6 @@ public class NoHungerConfig {
         return INSTANCE;
     }
 
-    // Getter & Setter
     public HungerMode getMode() { return mode; }
     public void setMode(HungerMode mode) { this.mode = mode; }
 
@@ -70,7 +69,6 @@ public class NoHungerConfig {
     public boolean isPeacefulHunger() { return peacefulHunger; }
     public void setPeacefulHunger(boolean peacefulHunger) { this.peacefulHunger = peacefulHunger; }
 
-    // Laden & Speichern
     public void loadConfig() {
         Path path = Path.of(CONFIG_FILE);
         if (Files.exists(path)) {
@@ -123,7 +121,6 @@ public class NoHungerConfig {
                 .setSaveConsumer(this::setShowHungerBar)
                 .build());
 
-        // NEU: Peaceful Hunger Toggle (v11-kompatibel)
         general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.nohunger.peaceful_hunger"), peacefulHunger)
                 .setTooltipSupplier(() -> Optional.of(new Text[]{
