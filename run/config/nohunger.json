@@ -1,1 +1,5 @@
-{"mode":"VANILLA_SPECIAL_FOODS"}
+{
+  "mode": "SURVIVAL_CAMPFIRE",
+  "showHungerBar": false,
+  "peacefulHunger": true
+}

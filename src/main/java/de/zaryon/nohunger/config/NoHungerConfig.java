@@ -43,7 +43,6 @@ public class NoHungerConfig {
     private HungerMode mode = HungerMode.NORMAL;
     private boolean showHungerBar = true;
 
-    // NEU: Peaceful Hunger Option
     private boolean peacefulHunger = false;
 
     private static final String CONFIG_FILE = "config/nohunger.json";
@@ -60,7 +59,6 @@ public class NoHungerConfig {
         return INSTANCE;
     }
 
-    // Getter & Setter
     public HungerMode getMode() { return mode; }
     public void setMode(HungerMode mode) { this.mode = mode; }
 
@@ -70,7 +68,6 @@ public class NoHungerConfig {
     public boolean isPeacefulHunger() { return peacefulHunger; }
     public void setPeacefulHunger(boolean peacefulHunger) { this.peacefulHunger = peacefulHunger; }
 
-    // Laden & Speichern
     public void loadConfig() {
         Path path = Path.of(CONFIG_FILE);
         if (Files.exists(path)) {
@@ -94,7 +91,6 @@ public class NoHungerConfig {
         } catch (IOException ignored) {}
     }
 
-    // ModMenu GUI
     public ConfigBuilder createConfigScreen() {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setTitle(Text.translatable("config.nohunger.settings"));
@@ -123,7 +119,6 @@ public class NoHungerConfig {
                 .setSaveConsumer(this::setShowHungerBar)
                 .build());
 
-        // NEU: Peaceful Hunger Toggle (v11-kompatibel)
         general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.nohunger.peaceful_hunger"), peacefulHunger)
                 .setTooltipSupplier(() -> Optional.of(new Text[]{

@@ -68,7 +68,7 @@ public class NoHungerMod implements ModInitializer {
                     if (stack.get(DataComponentTypes.FOOD) != null) return ActionResult.FAIL;
                 }
                 case ALL_FOODS -> {
-                    // Immer erlaubt
+
                 }
                 default -> {
                 }
